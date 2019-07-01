@@ -1,19 +1,11 @@
-require 'rest-client'
 
 class PostsController < ApplicationController
-  API_KEY = "cba4b9a885984bc49ddefc159d1fbb23"
-  ALL_SOURCES = ["cnn","the-new-york-times","cbs-news","bbc-news","al-jazeera-english","the-wall-street-journal","fox-news","breitbart-news","national-review"]
+  skip_before_action :authorized, only: [:create, :index]
+
 
   def index
     @posts = Post.all
     render json: @posts
-  end
-
-  def fetch_posts
-    news_url = "https://newsapi.org/v2/everything?sources=#{ALL_SOURCES}&pageSize=100&apiKey=#{API_KEY}"
-    @data = JSON.parse( RestClient.get("#{news_url}"))
-    byebug
-    render json: @data
   end
 
   def create
@@ -28,6 +20,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :publish_date, :author, :content, :source, :img_url, :slant)
+    params.require(:post).permit(:title, :description, :publish_date, :author, :content, :source, :img_url, :slant, :topic)
   end
 end
