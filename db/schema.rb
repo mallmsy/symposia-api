@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_213558) do
     t.string "username"
     t.string "password_digest"
     t.string "bio"
-    t.string "slant"
+    t.integer "slant"
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

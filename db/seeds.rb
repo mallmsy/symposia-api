@@ -11,7 +11,12 @@ DATE = date.to_s
 CATEGORIES = ["CLIMATE", "IMMIGRATION", "2020", "NATIONAL+DEBT", "ABORTION", "BORDER" ]
 
 Post.destroy_all
+User.destroy_all
+Like.destroy_all
+
 Post.reset_pk_sequence
+User.reset_pk_sequence
+Like.reset_pk_sequence
 
 CATEGORIES.each do |topic|
   news_url = "https://newsapi.org/v2/everything?q=#{topic}&sources=#{LEFT_SOURCES}&from=#{DATE}pageSize=3&apiKey=#{API_KEY}"

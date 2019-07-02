@@ -9,7 +9,7 @@ class AuthController < ApplicationController
       token = encode_token({ user_id: @user.id})
       render json: { user: UserSerializer.new(@user), jwt: token }, status: :accepted
     else
-      render json: { message: 'Invalid username or password' }, status: :unauthorized
+      render json: { errors: 'Invalid username or password' }, status: :unauthorized
     end
   end
 
@@ -17,7 +17,7 @@ class AuthController < ApplicationController
     if current_user
       render json: current_user
     else
-      render json: { erros: "Don't touch my cookies!" }
+      render json: { errors: "Don't touch my cookies!" }
     end
   end
 
