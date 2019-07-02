@@ -1,13 +1,20 @@
 require 'rest-client'
+require 'activerecord-reset-pk-sequence'
+
 API_KEY = "cba4b9a885984bc49ddefc159d1fbb23"
-LEFT_SOURCES = "cnn,the-new-york-times,cbs-news"
-CENTER_SOURCES = "bbc-news,al-jazeera-english,the-wall-street-journal"
-RIGHT_SOURCES = "fox-news,breitbart-news,national-review"
+LEFT_SOURCES = "cnn,the-new-york-times,cbs-news,the-huffington-post,msnbc"
+CENTER_SOURCES = "bbc-news,the-wall-street-journal,associated-press,bloomberg,reuters,usa-today"
+RIGHT_SOURCES = "fox-news,breitbart-news,national-review,the-american-conservative"
+date = Date.today - 10.days
+DATE = date.to_s
 
 CATEGORIES = ["CLIMATE", "IMMIGRATION", "2020", "NATIONAL+DEBT", "ABORTION", "BORDER" ]
 
+Post.destroy_all
+Post.reset_pk_sequence
+
 CATEGORIES.each do |topic|
-  news_url = "https://newsapi.org/v2/everything?q=#{topic}&sources=#{LEFT_SOURCES}&pageSize=10&apiKey=#{API_KEY}"
+  news_url = "https://newsapi.org/v2/everything?q=#{topic}&sources=#{LEFT_SOURCES}&from=#{DATE}pageSize=3&apiKey=#{API_KEY}"
   response = JSON.parse( RestClient.get("#{news_url}"))
   articles = response["articles"]
 
@@ -18,7 +25,7 @@ CATEGORIES.each do |topic|
 end
 
 CATEGORIES.each do |topic|
-  news_url = "https://newsapi.org/v2/everything?q=#{topic}&sources=#{CENTER_SOURCES}&pageSize=10&apiKey=#{API_KEY}"
+  news_url = "https://newsapi.org/v2/everything?q=#{topic}&sources=#{CENTER_SOURCES}&from=#{DATE}pageSize=3&apiKey=#{API_KEY}"
   response = JSON.parse( RestClient.get("#{news_url}"))
   articles = response["articles"]
 
@@ -29,7 +36,7 @@ CATEGORIES.each do |topic|
 end
 
 CATEGORIES.each do |topic|
-  news_url = "https://newsapi.org/v2/everything?q=#{topic}&sources=#{RIGHT_SOURCES}&pageSize=10&apiKey=#{API_KEY}"
+  news_url = "https://newsapi.org/v2/everything?q=#{topic}&sources=#{RIGHT_SOURCES}&from=#{DATE}pageSize=3&apiKey=#{API_KEY}"
   response = JSON.parse( RestClient.get("#{news_url}"))
   articles = response["articles"]
 
@@ -38,3 +45,5 @@ CATEGORIES.each do |topic|
   end
 
 end
+
+puts "seed complete 😻"

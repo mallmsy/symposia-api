@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rest-client'
 
+gem 'activerecord-reset-pk-sequence', '~> 0.2.0'
+
 # Use Active Model Serializers
 gem 'active_model_serializers'
 
