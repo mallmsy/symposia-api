@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :update]
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
-  get '/fetch', to: 'posts#fetch_articles'
+  get '/fetch', to: 'fetch#fetch_articles'
 end
