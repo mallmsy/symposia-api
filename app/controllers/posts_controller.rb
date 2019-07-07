@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     if @post.valid?
-      render json: @post
+      PostsChannel
     else
       render json: { error: 'failed to create post' }
     end

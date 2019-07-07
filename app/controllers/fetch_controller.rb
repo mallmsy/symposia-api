@@ -23,7 +23,6 @@ class FetchController < ApplicationController
         @post = Post.find_by(title: article["title"])
         if !@post
           @new_post = Post.create!(title: article["title"], description: article["description"], publish_date: article["publishedAt"], author: article["author"], content: article["content"], source: article["source"]["name"], img_url: article["urlToImage"], link: article["url"], slant: "left", topic: topic )
-
           @@posts << @new_post
         end
       end
