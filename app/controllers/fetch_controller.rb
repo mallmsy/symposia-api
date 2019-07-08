@@ -9,7 +9,7 @@ class FetchController < ApplicationController
   date = Date.yesterday
   DATE = date.to_s
 
-  CATEGORIES = ["CLIMATE", "IMMIGRATION", "2020", "NATIONAL+DEBT", "ABORTION", "BORDER" ]
+  CATEGORIES = ["2020", "CLIMATE", "EDUCATION", "HEALTH+CARE", "IMMIGRATION", "LGBTQ", "WALL+STREET" ]
 
   @@posts = []
 
