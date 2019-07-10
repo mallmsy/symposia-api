@@ -11,8 +11,6 @@ require 'activerecord-reset-pk-sequence'
 # CATEGORIES = ["CLIMATE", "IMMIGRATION", "2020", "NATIONAL+DEBT", "ABORTION", "BORDER" ]
 
 Post.destroy_all
-
-
 Post.reset_pk_sequence
 
 puts "seed complete 😻"
