@@ -1,25 +1,21 @@
-# README
+# Symposia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web app that allows users to stay informed, read and share headlines from opposing political viewpoints and challenge their own assumptions. Articles are filtered into Liberal, Moderate and Conservative feeds and users are able to like and comment on each article.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+This client side app functions in tandem with a React front end. View that here:
+https://github.com/mallmsy/symposia-client
 
-* System dependencies
+## Built With
 
-* Configuration
+* [Ruby on Rails](https://rubyonrails.org/) - The Ruby Framework used
+* [ActionCable](https://redux.js.org/) - Websockets / PubSub Protocol
 
-* Database creation
+## Authors
 
-* Database initialization
+* **Mallory Woods** - [mallmsy](https://github.com/mallmsy)
 
-* How to run the test suite
+## Acknowledgments
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# symposia-api
+* Hat tip to [Red Feed, Blue Feed](http://graphics.wsj.com/blue-feed-red-feed/) for inspiration
