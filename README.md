@@ -10,7 +10,7 @@ https://github.com/mallmsy/symposia-client
 ## Built With
 
 * [Ruby on Rails](https://rubyonrails.org/) - The Ruby Framework used
-* [ActionCable](https://redux.js.org/) - Websockets / PubSub Protocol
+* [ActionCable](https://guides.rubyonrails.org/action_cable_overview.html) - Websockets / PubSub Protocol
 
 ## Authors
 
